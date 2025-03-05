@@ -1,0 +1,17 @@
+about
+ggplot2でグラフを描く
+使用するデータ
+package
+普通のグラフ
+ggplot2のグラフ
+少し装飾すると
+最後に
+plotlyでグラフを描く
+使用するデータ-1
+package-1
+plotlyのグラフ
+最後に-1
+leafletで地図を作成する
+package-2
+地図に点
+最後に-2
