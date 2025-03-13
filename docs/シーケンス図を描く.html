@@ -114,8 +114,8 @@
 <span><span class="st">     ticket seller-&gt;&gt;customer: sorry;</span></span>
 <span><span class="st">   end</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-81039794f2a69e459389" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-81039794f2a69e459389">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-9b60d4e11809fdc763ba" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-9b60d4e11809fdc763ba">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="シーケンス図を書く2" class="section level2" number="7.4">
 <h2>
@@ -136,8 +136,8 @@
 <span><span class="st">    John-&gt;&gt;Bob: How about you?</span></span>
 <span><span class="st">    Bob--&gt;&gt;John: Jolly good!</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-fa5ed002b8001c527514" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-fa5ed002b8001c527514">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7e22db9d42d2c1f2d4fb" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7e22db9d42d2c1f2d4fb">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="よく書くやつ" class="section level2" number="7.5">
 <h2>
@@ -159,8 +159,8 @@
 <span><span class="st">   end</span></span>
 <span><span class="st"></span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-2e0a42415e2e7c9494e4" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2e0a42415e2e7c9494e4">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-dba7b3b194a65951f01f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-dba7b3b194a65951f01f">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="リンク" class="section level2" number="7.6">
 <h2>
@@ -173,7 +173,8 @@
 <h2>
 <span class="header-section-number">7.7</span> 最後に<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%BE%8C%E3%81%AB-5"><i class="fas fa-link"></i></a>
 </h2>
-<p>シーケンス図、まだ活躍するはず！！（しないかな…。）</p>
+<p>シーケンス図、まだ活躍するはず！！（しないかな…。）
+あと、Alice、Bobとくると、次は、Charlieであってほしいのは、職業病か。</p>
 
 </div>
 </div>
