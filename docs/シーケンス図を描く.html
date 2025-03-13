@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 シーケンス図を描く | R Memo</title>
+<meta name="author" content="m-ari">
+<meta name="generator" content="bookdown 0.42 with bs4_book()">
+<meta property="og:title" content="Chapter 7 シーケンス図を描く | R Memo">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 シーケンス図を描く | R Memo">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.4/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.33/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script><style>
+      #content {
+      font-size: 0.95rem;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="7.1 はじめに 20年位前、こういう図はEXCELで描いていました。 まぁ、いまでも時々使いますが、こういうのも再現可能に作成できるのは本当にうれしいです。  7.2 Package 使用するのは、「DiagrammeR」パッケージです。 library(DiagrammeR)  7.3 シーケンス図を書く こんな感じに、シーケンス図が出来上がります。ALTにも対応している。 #...">
+<meta property="og:description" content="7.1 はじめに 20年位前、こういう図はEXCELで描いていました。 まぁ、いまでも時々使いますが、こういうのも再現可能に作成できるのは本当にうれしいです。  7.2 Package 使用するのは、「DiagrammeR」パッケージです。 library(DiagrammeR)  7.3 シーケンス図を書く こんな感じに、シーケンス図が出来上がります。ALTにも対応している。 #...">
+<meta name="twitter:description" content="7.1 はじめに 20年位前、こういう図はEXCELで描いていました。 まぁ、いまでも時々使いますが、こういうのも再現可能に作成できるのは本当にうれしいです。  7.2 Package 使用するのは、「DiagrammeR」パッケージです。 library(DiagrammeR)  7.3 シーケンス図を書く こんな感じに、シーケンス図が出来上がります。ALTにも対応している。 #...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Memo</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="ggplot2%E3%81%A7%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">2</span> ggplot2でグラフを描く</a></li>
+<li><a class="" href="plotly%E3%81%A7%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">3</span> plotlyでグラフを描く</a></li>
+<li><a class="" href="leaflet%E3%81%A7%E5%9C%B0%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">4</span> leafletで地図を作成する</a></li>
+<li><a class="" href="osmdata%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%99%E3%82%8B.html"><span class="header-section-number">5</span> osmdataでデータを抽出する</a></li>
+<li><a class="" href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></li>
+<li><a class="active" href="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">7</span> シーケンス図を描く</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="シーケンス図を描く" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> シーケンス図を描く<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F"><i class="fas fa-link"></i></a>
+</h1>
+<div id="はじめに-2" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> はじめに<a class="anchor" aria-label="anchor" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>20年位前、こういう図はEXCELで描いていました。
+まぁ、いまでも時々使いますが、こういうのも再現可能に作成できるのは本当にうれしいです。</p>
+</div>
+<div id="package-5" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Package<a class="anchor" aria-label="anchor" href="#package-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>使用するのは、「DiagrammeR」パッケージです。</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="シーケンス図を書く" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> シーケンス図を書く<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F"><i class="fas fa-link"></i></a>
+</h2>
+<p>こんな感じに、シーケンス図が出来上がります。ALTにも対応している。</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a sequence diagram</span></span>
+<span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
+<span><span class="st">sequenceDiagram;</span></span>
+<span><span class="st">   customer-&gt;&gt;ticket seller: ask for a ticket;</span></span>
+<span><span class="st">   ticket seller-&gt;&gt;database: seats;</span></span>
+<span><span class="st">   alt tickets available</span></span>
+<span><span class="st">     database-&gt;&gt;ticket seller: ok;</span></span>
+<span><span class="st">     ticket seller-&gt;&gt;customer: confirm;</span></span>
+<span><span class="st">     customer-&gt;&gt;ticket seller: ok;</span></span>
+<span><span class="st">     ticket seller-&gt;&gt;database: book a seat;</span></span>
+<span><span class="st">     ticket seller-&gt;&gt;printer: print a ticket;</span></span>
+<span><span class="st">   else sold out</span></span>
+<span><span class="st">     database-&gt;&gt;ticket seller: none left;</span></span>
+<span><span class="st">     ticket seller-&gt;&gt;customer: sorry;</span></span>
+<span><span class="st">   end</span></span>
+<span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-81039794f2a69e459389" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-81039794f2a69e459389">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="シーケンス図を書く2" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> シーケンス図を書く2<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F2"><i class="fas fa-link"></i></a>
+</h2>
+<p>こんなのもできる。</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
+<span><span class="st">sequenceDiagram;</span></span>
+<span><span class="st">    participant Alice</span></span>
+<span><span class="st">    participant Bob</span></span>
+<span><span class="st">    Alice-&gt;&gt;John: Hello John, how are you?</span></span>
+<span><span class="st">    loop HealthCheck</span></span>
+<span><span class="st">        John-&gt;&gt;John: Fight against hypochondria</span></span>
+<span><span class="st">    end</span></span>
+<span><span class="st">    Note right of John: Rational thoughts &lt;br/&gt;prevail!</span></span>
+<span><span class="st">    John--&gt;&gt;Alice: Great!</span></span>
+<span><span class="st">    John-&gt;&gt;Bob: How about you?</span></span>
+<span><span class="st">    Bob--&gt;&gt;John: Jolly good!</span></span>
+<span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-fa5ed002b8001c527514" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fa5ed002b8001c527514">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="よく書くやつ" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> よく書くやつ<a class="anchor" aria-label="anchor" href="#%E3%82%88%E3%81%8F%E6%9B%B8%E3%81%8F%E3%82%84%E3%81%A4"><i class="fas fa-link"></i></a>
+</h2>
+<p>私の世界では、こんな図をよく書いていた。</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
+<span><span class="st">sequenceDiagram;</span></span>
+<span><span class="st">    participant UE</span></span>
+<span><span class="st">    participant eNB</span></span>
+<span><span class="st">    UE-&gt;&gt;eNB: rrcConnectionRequest</span></span>
+<span><span class="st">    Note right of eNB: Admission Check</span></span>
+<span><span class="st">    alt Admission OK</span></span>
+<span><span class="st">     eNB-&gt;&gt;UE: rrcConnectionSetup</span></span>
+<span><span class="st">     UE-&gt;&gt;eNB: rrcConnectionSetupComplete</span></span>
+<span><span class="st">    else Admission NG</span></span>
+<span><span class="st">     eNB-&gt;&gt;UE: rrcConnectionReject</span></span>
+<span><span class="st">   end</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-2e0a42415e2e7c9494e4" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-2e0a42415e2e7c9494e4">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="リンク" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> リンク<a class="anchor" aria-label="anchor" href="#%E3%83%AA%E3%83%B3%E3%82%AF"><i class="fas fa-link"></i></a>
+</h2>
+<p>Mermaid公式リンク
+[link] <a href="https://mermaid.js.org/syntax/sequenceDiagram.html" class="uri">https://mermaid.js.org/syntax/sequenceDiagram.html</a></p>
+</div>
+<div id="最後に-5" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> 最後に<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%BE%8C%E3%81%AB-5"><i class="fas fa-link"></i></a>
+</h2>
+<p>シーケンス図、まだ活躍するはず！！（しないかな…。）</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F"><span class="header-section-number">7</span> シーケンス図を描く</a></li>
+<li><a class="nav-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-2"><span class="header-section-number">7.1</span> はじめに</a></li>
+<li><a class="nav-link" href="#package-5"><span class="header-section-number">7.2</span> Package</a></li>
+<li><a class="nav-link" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F"><span class="header-section-number">7.3</span> シーケンス図を書く</a></li>
+<li><a class="nav-link" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F2"><span class="header-section-number">7.4</span> シーケンス図を書く2</a></li>
+<li><a class="nav-link" href="#%E3%82%88%E3%81%8F%E6%9B%B8%E3%81%8F%E3%82%84%E3%81%A4"><span class="header-section-number">7.5</span> よく書くやつ</a></li>
+<li><a class="nav-link" href="#%E3%83%AA%E3%83%B3%E3%82%AF"><span class="header-section-number">7.6</span> リンク</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%BE%8C%E3%81%AB-5"><span class="header-section-number">7.7</span> 最後に</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
