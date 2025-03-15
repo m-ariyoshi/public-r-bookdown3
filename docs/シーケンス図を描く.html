@@ -66,6 +66,7 @@
 <li><a class="" href="osmdata%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%99%E3%82%8B.html"><span class="header-section-number">5</span> osmdataでデータを抽出する</a></li>
 <li><a class="" href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></li>
 <li><a class="active" href="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">7</span> シーケンス図を描く</a></li>
+<li><a class="" href="ggpairs%E3%81%A7%E9%87%8D%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90.html"><span class="header-section-number">8</span> ggpairsで重回帰分析</a></li>
 </ul>
 
         <div class="book-extra">
@@ -114,8 +115,8 @@
 <span><span class="st">     ticket seller-&gt;&gt;customer: sorry;</span></span>
 <span><span class="st">   end</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-9b60d4e11809fdc763ba" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-9b60d4e11809fdc763ba">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-4d523bcc24db30060644" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4d523bcc24db30060644">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="シーケンス図を書く2" class="section level2" number="7.4">
 <h2>
@@ -136,8 +137,8 @@
 <span><span class="st">    John-&gt;&gt;Bob: How about you?</span></span>
 <span><span class="st">    Bob--&gt;&gt;John: Jolly good!</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7e22db9d42d2c1f2d4fb" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7e22db9d42d2c1f2d4fb">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-afdda0d2b71a8063d31d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-afdda0d2b71a8063d31d">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="よく書くやつ" class="section level2" number="7.5">
 <h2>
@@ -159,8 +160,8 @@
 <span><span class="st">   end</span></span>
 <span><span class="st"></span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-dba7b3b194a65951f01f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-dba7b3b194a65951f01f">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-bacc663f4f6338095d3a" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bacc663f4f6338095d3a">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="リンク" class="section level2" number="7.6">
 <h2>
@@ -180,7 +181,7 @@
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></div>
-<div class="empty"></div>
+<div class="next"><a href="ggpairs%E3%81%A7%E9%87%8D%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90.html"><span class="header-section-number">8</span> ggpairsで重回帰分析</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -208,7 +209,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-13.</p>
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-15.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
