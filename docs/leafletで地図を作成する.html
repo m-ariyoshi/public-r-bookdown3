@@ -25,7 +25,8 @@
 <link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
 <script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script><style>
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><style>
       #content {
       font-size: 0.95rem;
     }
@@ -67,6 +68,7 @@
 <li><a class="" href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></li>
 <li><a class="" href="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">7</span> シーケンス図を描く</a></li>
 <li><a class="" href="ggpairs%E3%81%A7%E9%87%8D%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90.html"><span class="header-section-number">8</span> ggpairsで重回帰分析</a></li>
+<li><a class="" href="nw%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B.html"><span class="header-section-number">9</span> NWデータを可視化する</a></li>
 </ul>
 
         <div class="book-extra">
@@ -95,8 +97,8 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/leaflet/reference/leaflet.html">leaflet</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addMarkers</a></span><span class="op">(</span>lng<span class="op">=</span><span class="fl">139.745461</span>, lat<span class="op">=</span><span class="fl">35.65856</span>, popup<span class="op">=</span><span class="st">"This is the Tokyo Tower."</span><span class="op">)</span></span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-58066dad853b1fbf90ea" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-58066dad853b1fbf90ea">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.65856,139.745461,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"This is the Tokyo Tower.",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[35.65856,35.65856],"lng":[139.745461,139.745461]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-bfe46202c98d982c5a75" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bfe46202c98d982c5a75">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.65856,139.745461,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"This is the Tokyo Tower.",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[35.65856,35.65856],"lng":[139.745461,139.745461]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="最後に-2" class="section level2" number="4.3">
 <h2>
@@ -132,7 +134,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-15.</p>
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
