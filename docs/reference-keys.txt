@@ -53,3 +53,12 @@ edgesの作成
 可視化する
 参考リンク
 最後に-7
+ポリゴンにbufferを作成する
+はじめに-5
+使用するデータ-5
+package-8
+入力データを可視化
+sfで5kmのbufferを作成
+qgisの準備
+qgisで1kmのbufferを作成
+最後に-8
