@@ -62,3 +62,15 @@ sfで5kmのbufferを作成
 qgisの準備
 qgisで1kmのbufferを作成
 最後に-8
+prophetで時系列データを分析する
+はじめに-6
+使用するデータ-6
+package-9
+入力データの準備
+prophet分析モデルの作成
+prophet分析将来の定義
+prophet分析モデルから将来を予測
+prophet分析結果を出力１
+prophet分析結果を出力２
+prophet分析パラメータの調整
+最後に-9
