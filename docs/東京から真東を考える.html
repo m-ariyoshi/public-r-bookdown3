@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 東京から真東を考える | R Memo</title>
+<meta name="author" content="m-ari">
+<meta name="generator" content="bookdown 0.42 with bs4_book()">
+<meta property="og:title" content="Chapter 13 東京から真東を考える | R Memo">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 東京から真東を考える | R Memo">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.4/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script><link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-1.3.1/leaflet.js"></script><link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="libs/proj4-2.6.2/proj4.min.js"></script><script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.33/datatables.js"></script><link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script><link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+<script src="libs/vis-9.1.0/vis-network.min.js"></script><script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script><link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet">
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script><script src="libs/dygraphs-1.1.1/shapes.js"></script><script src="libs/moment-2.8.4/moment.js"></script><script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script><script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script><script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script><script src="libs/Dygraph.Plugins.Unzoom-1.0/unzoom.js"></script><style>
+      #content {
+      font-size: 0.95rem;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="13.1 はじめに 地球が丸いことを時々忘れる。そんな時は落ち着いて考える。  13.2 Package 今回は、「geosphere」です。 library(leaflet) library(sf) library(geosphere) library(dplyr)  13.3 使用データ 東京駅のポイントを作成します。 tokyo &lt;- c(139.766905, 35.681242)...">
+<meta property="og:description" content="13.1 はじめに 地球が丸いことを時々忘れる。そんな時は落ち着いて考える。  13.2 Package 今回は、「geosphere」です。 library(leaflet) library(sf) library(geosphere) library(dplyr)  13.3 使用データ 東京駅のポイントを作成します。 tokyo &lt;- c(139.766905, 35.681242)...">
+<meta name="twitter:description" content="13.1 はじめに 地球が丸いことを時々忘れる。そんな時は落ち着いて考える。  13.2 Package 今回は、「geosphere」です。 library(leaflet) library(sf) library(geosphere) library(dplyr)  13.3 使用データ 東京駅のポイントを作成します。 tokyo &lt;- c(139.766905, 35.681242)...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">R Memo</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> About</a></li>
+<li><a class="" href="ggplot2%E3%81%A7%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">2</span> ggplot2でグラフを描く</a></li>
+<li><a class="" href="plotly%E3%81%A7%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">3</span> plotlyでグラフを描く</a></li>
+<li><a class="" href="leaflet%E3%81%A7%E5%9C%B0%E5%9B%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">4</span> leafletで地図を作成する</a></li>
+<li><a class="" href="osmdata%E3%81%A7%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%99%E3%82%8B.html"><span class="header-section-number">5</span> osmdataでデータを抽出する</a></li>
+<li><a class="" href="wide%E3%81%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92long%E3%81%AB%E3%81%9D%E3%81%97%E3%81%A6%E8%A6%81%E7%B4%84%E3%81%99%E3%82%8B.html"><span class="header-section-number">6</span> wideなデータをLongに。そして要約する</a></li>
+<li><a class="" href="%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%8F%8F%E3%81%8F.html"><span class="header-section-number">7</span> シーケンス図を描く</a></li>
+<li><a class="" href="ggpairs%E3%81%A7%E9%87%8D%E5%9B%9E%E5%B8%B0%E5%88%86%E6%9E%90.html"><span class="header-section-number">8</span> ggpairsで重回帰分析</a></li>
+<li><a class="" href="nw%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B.html"><span class="header-section-number">9</span> NWデータを可視化する</a></li>
+<li><a class="" href="%E3%83%9D%E3%83%AA%E3%82%B4%E3%83%B3%E3%81%ABbuffer%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">10</span> ポリゴンにBufferを作成する</a></li>
+<li><a class="" href="prophet%E3%81%A7%E6%99%82%E7%B3%BB%E5%88%97%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">11</span> Prophetで時系列データを分析する</a></li>
+<li><a class="" href="jpgrid%E3%81%A7%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">12</span> jpgridでメッシュを作成する</a></li>
+<li><a class="active" href="%E6%9D%B1%E4%BA%AC%E3%81%8B%E3%82%89%E7%9C%9F%E6%9D%B1%E3%82%92%E8%80%83%E3%81%88%E3%82%8B.html"><span class="header-section-number">13</span> 東京から真東を考える</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="東京から真東を考える" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> 東京から真東を考える<a class="anchor" aria-label="anchor" href="#%E6%9D%B1%E4%BA%AC%E3%81%8B%E3%82%89%E7%9C%9F%E6%9D%B1%E3%82%92%E8%80%83%E3%81%88%E3%82%8B"><i class="fas fa-link"></i></a>
+</h1>
+<div id="はじめに-7" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> はじめに<a class="anchor" aria-label="anchor" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-7"><i class="fas fa-link"></i></a>
+</h2>
+<p>地球が丸いことを時々忘れる。そんな時は落ち着いて考える。</p>
+</div>
+<div id="package-11" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Package<a class="anchor" aria-label="anchor" href="#package-11"><i class="fas fa-link"></i></a>
+</h2>
+<p>今回は、「geosphere」です。</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/">leaflet</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">geosphere</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="使用データ" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> 使用データ<a class="anchor" aria-label="anchor" href="#%E4%BD%BF%E7%94%A8%E3%83%87%E3%83%BC%E3%82%BF"><i class="fas fa-link"></i></a>
+</h2>
+<p>東京駅のポイントを作成します。</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tokyo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">139.766905</span>, <span class="fl">35.681242</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_tokyo</span> <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html">st_point</a></span><span class="op">(</span><span class="va">tokyo</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/leaflet/reference/leaflet.html">leaflet</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addMarkers</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">p_tokyo</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/addScaleBar.html">addScaleBar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"bottomleft"</span>,<span class="fu"><a href="https://rstudio.github.io/leaflet/reference/addScaleBar.html">scaleBarOptions</a></span><span class="op">(</span>imperial <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-4572402319918954c554" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-4572402319918954c554">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.681242,139.766905,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":true,"position":"bottomleft"}]}],"limits":{"lat":[35.681242,35.681242],"lng":[139.766905,139.766905]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="真東９０度方向に1000km進む" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> 真東（９０度）方向に1000km進む<a class="anchor" aria-label="anchor" href="#%E7%9C%9F%E6%9D%B1%EF%BC%99%EF%BC%90%E5%BA%A6%E6%96%B9%E5%90%91%E3%81%AB1000km%E9%80%B2%E3%82%80"><i class="fas fa-link"></i></a>
+</h2>
+<p>なんとなくだけど、北緯が同じところをイメージしますよね。違うんです。
+東京駅を基準に、真東（９０°）に、1000km進んでみましょう。</p>
+<p>NHKリンク
+[link] <a href="https://www2.nhk.or.jp/school/watch/clip/?das_id=D0005310422_00000" class="uri">https://www2.nhk.or.jp/school/watch/clip/?das_id=D0005310422_00000</a></p>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">test_dist</span>  <span class="op">=</span> <span class="fl">1000</span> <span class="op">*</span> <span class="fl">1000</span></span>
+<span><span class="va">test_angle</span> <span class="op">=</span> <span class="fl">90</span></span>
+<span><span class="va">ans</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/geosphere/man/destPoint.html">destPoint</a></span><span class="op">(</span><span class="va">tokyo</span>, <span class="va">test_angle</span>, <span class="va">test_dist</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_ans</span>   <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html">st_point</a></span><span class="op">(</span><span class="va">ans</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p_ans_line</span> <span class="op">=</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html">st_sfc</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html">st_linestring</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">tokyo</span>,<span class="va">ans</span><span class="op">)</span><span class="op">)</span>, crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span>
+<span><span class="va">p_tokyo_buff</span> <span class="op">=</span> <span class="va">p_tokyo</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span>crs<span class="op">=</span><span class="fl">32654</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html">st_buffer</a></span><span class="op">(</span>dist<span class="op">=</span><span class="va">test_dist</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html">st_transform</a></span><span class="op">(</span>crs<span class="op">=</span><span class="fl">4326</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/leaflet/reference/leaflet.html">leaflet</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addMarkers</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">p_tokyo</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addMarkers</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">p_ans</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addPolylines</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">p_ans_line</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addPolylines</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">p_tokyo_buff</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/addScaleBar.html">addScaleBar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"bottomleft"</span>,<span class="fu"><a href="https://rstudio.github.io/leaflet/reference/addScaleBar.html">scaleBarOptions</a></span><span class="op">(</span>imperial <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-909aaf1e1d6b082c2948" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-909aaf1e1d6b082c2948">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.681242,139.766905,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMarkers","args":[35.17706790381882,150.7675697701841,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[139.766905,150.7675697701841],"lat":[35.681242,35.17706790381882]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":false,"fillColor":"#03F","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[150.754953221229,150.6844761236271,150.586217062146,150.4608448663538,150.3090566967112,150.1315753073201,149.9291469042033,149.7025395338794,149.4525419346308,149.1799627818106,148.8856302586089,148.5703918847131,148.235114537133,147.8806846000237,147.5080081835521,147.1180113556793,146.7116403351276,146.2898615987434,145.8536618619204,145.4040478966757,144.9420461583228,144.4687021983961,143.9850798484579,143.4922601665657,142.9913401453653,142.4834311878652,141.9696573637868,141.4511534658158,140.9290628909398,140.404535377195,139.8787246304118,139.352785878838,138.8278733957176,138.3051380309606,137.7857247929224,137.2707705200229,136.7614016795214,136.258732327297,135.7638622580727,135.2778753702903,134.8018382639402,134.336799083241,133.8837866092917,133.4438096008612,133.017856374473,132.606894608022,132.2118713454441,131.8337131735406,131.4733265360158,131.1315981441655,130.8093954385031,130.5075670509459,130.2269432130232,129.9683360519285,129.7325397131304,129.5203302457119,129.3324651846764,129.1696827632043,129.0327006873786,128.9222144063569,128.8388948125416,128.7833853092112,128.7562981876133,128.7582102619858,128.7896577197403,128.8511301554813,128.943063772028,129.0658337495283,129.2197458053967,129.4050269933891,129.6218158196917,129.8701517872876,130.1499645166388,130.4610626300968,130.8031226282587,131.1756780270981,131.5781090630589,132.0096333069157,132.4692975532357,132.9559713676884,133.4683426761722,134.0049157649657,134.564012027615,135.1437737406735,135.7421710765771,136.3570124691671,136.9859583386178,137.6265380623493,138.2761699529474,138.9321838803026,139.5918460608274,140.2523854393135,140.911021015563,141.5649894236733,142.2115720600546,142.8481210777862,143.4720836181729,144.0810237314093,144.6726415413032,145.244789326909,145.79548431899,146.3229181338561,146.8254628844511,147.3016741129719,147.7502907766707,148.1702325863903,148.5605950449308,148.920642560095,149.249800016856,149.5476431869793,149.8138883355272,150.0483813550408,150.2510867228517,150.4220765376424,150.5615198504496,150.6696724646898,150.7468673409961,150.7935057067199,150.8100489375658,150.7970112503323,150.754953221229],"lat":[35.29133142950649,34.82739282633907,34.36689948813699,33.91096876842156,33.46069364827795,33.01714266156589,32.58135978374766,32.15436424331926,31.73715022069466,31.33068640548217,30.93591538934446,30.55375287798983,30.18508671224197,29.83077569451872,29.49164822334196,29.16850074462949,28.86209603439339,28.57316133299664,28.30238635619733,28.05042121273248,27.81787426205477,27.60530994893336,27.41324665387018,27.24215459958542,27.09245385413125,26.96451247046174,26.85864480051175,26.77511001904,26.71411088872447,26.67579279334945,26.66024306051033,26.6674905892297,26.69750579139633,26.75020084919109,26.82543028384889,26.92299182441984,27.04262755882979,27.18402534368062,27.34682044403435,27.53059737002833,27.73489187367792,27.95919306671217,28.2029456187997,28.46555199506469,28.74637469234749,29.04473843518328,29.35993229488644,29.69121169835315,30.03780029713012,30.39889167184121,30.77365085210799,31.16121563754319,31.56069771113715,31.97118354231153,32.39173508299696,32.82139026623902,33.25916332298407,33.70404493879634,34.1550022782606,34.61097891068722,35.0708946764112,35.53364553841022,35.99810346909231,36.46311642683906,36.92750848113106,37.39008014869644,37.84960900595004,38.30485064483828,38.75454003984615,39.19739339310522,39.63211052198721,40.05737784898623,40.47187204679745,40.87426438202646,41.26322578869789,41.63743268754018,41.99557354888839,42.33635617610172,42.6585156629578,42.96082295309839,43.24209390302693,43.50119872340411,43.73707164766689,43.94872065369801,44.13523704487858,44.29580468284796,44.42970865703477,44.53634317662637,44.61521847985084,44.66596657351656,44.68834564238938,44.68224300230467,44.64767651146811,44.58479439928037,44.49387351897291,44.37531607694673,44.22964493557325,44.05749762517338,43.85961923314583,43.63685436248115,43.39013836745745,43.12048808103452,42.82899224674885,42.51680185862622,42.18512059696499,41.83519552721401,41.46830820506426,41.08576630475913,40.68889586084451,40.27903418729015,39.85752351305213,39.42570535041723,38.98491559234432,38.53648031776369,38.08171226950054,37.62190795810096,37.15834533620371,36.6922819819867,36.22495372635838,35.75757365666903,35.29133142950649]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":false,"fillColor":"#03F","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":true,"position":"bottomleft"}]}],"limits":{"lat":[26.66024306051033,44.68834564238938],"lng":[128.7562981876133,150.8100489375658]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="最後に-11" class="section level2" number="13.5">
+<h2>
+<span class="header-section-number">13.5</span> 最後に<a class="anchor" aria-label="anchor" href="#%E6%9C%80%E5%BE%8C%E3%81%AB-11"><i class="fas fa-link"></i></a>
+</h2>
+<p>地球は丸い。</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="jpgrid%E3%81%A7%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B.html"><span class="header-section-number">12</span> jpgridでメッシュを作成する</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E6%9D%B1%E4%BA%AC%E3%81%8B%E3%82%89%E7%9C%9F%E6%9D%B1%E3%82%92%E8%80%83%E3%81%88%E3%82%8B"><span class="header-section-number">13</span> 東京から真東を考える</a></li>
+<li><a class="nav-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB-7"><span class="header-section-number">13.1</span> はじめに</a></li>
+<li><a class="nav-link" href="#package-11"><span class="header-section-number">13.2</span> Package</a></li>
+<li><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E3%83%87%E3%83%BC%E3%82%BF"><span class="header-section-number">13.3</span> 使用データ</a></li>
+<li><a class="nav-link" href="#%E7%9C%9F%E6%9D%B1%EF%BC%99%EF%BC%90%E5%BA%A6%E6%96%B9%E5%90%91%E3%81%AB1000km%E9%80%B2%E3%82%80"><span class="header-section-number">13.4</span> 真東（９０度）方向に1000km進む</a></li>
+<li><a class="nav-link" href="#%E6%9C%80%E5%BE%8C%E3%81%AB-11"><span class="header-section-number">13.5</span> 最後に</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
