@@ -78,6 +78,7 @@
 <li><a class="" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC2.html"><span class="header-section-number">15</span> Rasterの基本2</a></li>
 <li><a class="" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC3.html"><span class="header-section-number">16</span> Rasterの基本3</a></li>
 <li><a class="" href="%E5%9C%B0%E5%9B%B3%E4%B8%8A%E3%81%AE%E7%82%B9%E3%82%92%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%A7%E9%9B%86%E8%A8%88%E3%81%99%E3%82%8B.html"><span class="header-section-number">17</span> 地図上の点をラスターで集計する</a></li>
+<li><a class="" href="%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%AE%E8%B7%9D%E9%9B%A2.html"><span class="header-section-number">18</span> ラスターの距離</a></li>
 </ul>
 
         <div class="book-extra">
@@ -101,7 +102,7 @@
 <span class="header-section-number">7.2</span> Package<a class="anchor" aria-label="anchor" href="#package-5"><i class="fas fa-link"></i></a>
 </h2>
 <p>使用するのは、「DiagrammeR」パッケージです。</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rich-iannone.github.io/DiagrammeR/">DiagrammeR</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="シーケンス図を書く" class="section level2" number="7.3">
@@ -109,7 +110,7 @@
 <span class="header-section-number">7.3</span> シーケンス図を書く<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F"><i class="fas fa-link"></i></a>
 </h2>
 <p>こんな感じに、シーケンス図が出来上がります。ALTにも対応している。</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a sequence diagram</span></span>
 <span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">sequenceDiagram;</span></span>
@@ -126,15 +127,15 @@
 <span><span class="st">     ticket seller-&gt;&gt;customer: sorry;</span></span>
 <span><span class="st">   end</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-6b199abcaee85f1119a3" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-6b199abcaee85f1119a3">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-f9caa2b87bbc2cc54121" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-f9caa2b87bbc2cc54121">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for a ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print a ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer: sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="シーケンス図を書く2" class="section level2" number="7.4">
 <h2>
 <span class="header-section-number">7.4</span> シーケンス図を書く2<a class="anchor" aria-label="anchor" href="#%E3%82%B7%E3%83%BC%E3%82%B1%E3%83%B3%E3%82%B9%E5%9B%B3%E3%82%92%E6%9B%B8%E3%81%8F2"><i class="fas fa-link"></i></a>
 </h2>
 <p>こんなのもできる。</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">sequenceDiagram;</span></span>
 <span><span class="st">    participant Alice</span></span>
@@ -148,15 +149,15 @@
 <span><span class="st">    John-&gt;&gt;Bob: How about you?</span></span>
 <span><span class="st">    Bob--&gt;&gt;John: Jolly good!</span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-40ffabf24f4d147f3b87" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-40ffabf24f4d147f3b87">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-bf292d84b4a991dd6f38" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bf292d84b4a991dd6f38">{"x":{"diagram":"\nsequenceDiagram;\n    participant Alice\n    participant Bob\n    Alice->>John: Hello John, how are you?\n    loop HealthCheck\n        John->>John: Fight against hypochondria\n    end\n    Note right of John: Rational thoughts <br/>prevail!\n    John-->>Alice: Great!\n    John->>Bob: How about you?\n    Bob-->>John: Jolly good!\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="よく書くやつ" class="section level2" number="7.5">
 <h2>
 <span class="header-section-number">7.5</span> よく書くやつ<a class="anchor" aria-label="anchor" href="#%E3%82%88%E3%81%8F%E6%9B%B8%E3%81%8F%E3%82%84%E3%81%A4"><i class="fas fa-link"></i></a>
 </h2>
 <p>私の世界では、こんな図をよく書いていた。</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rich-iannone.github.io/DiagrammeR/reference/DiagrammeR.html">DiagrammeR</a></span><span class="op">(</span><span class="st">"</span></span>
 <span><span class="st">sequenceDiagram;</span></span>
 <span><span class="st">    participant UE</span></span>
@@ -171,8 +172,8 @@
 <span><span class="st">   end</span></span>
 <span><span class="st"></span></span>
 <span><span class="st">"</span><span class="op">)</span></span></code></pre></div>
-<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-7a37c93478502b3089f1" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-7a37c93478502b3089f1">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e1344b9c87864fce65a0" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e1344b9c87864fce65a0">{"x":{"diagram":"\nsequenceDiagram;\n    participant UE\n    participant eNB\n    UE->>eNB: rrcConnectionRequest\n    Note right of eNB: Admission Check\n    alt Admission OK\n     eNB->>UE: rrcConnectionSetup\n     UE->>eNB: rrcConnectionSetupComplete\n    else Admission NG\n     eNB->>UE: rrcConnectionReject\n   end\n\n"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="リンク" class="section level2" number="7.6">
 <h2>
@@ -220,7 +221,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-28.</p>
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

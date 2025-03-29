@@ -78,6 +78,7 @@
 <li><a class="" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC2.html"><span class="header-section-number">15</span> Rasterの基本2</a></li>
 <li><a class="" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC3.html"><span class="header-section-number">16</span> Rasterの基本3</a></li>
 <li><a class="" href="%E5%9C%B0%E5%9B%B3%E4%B8%8A%E3%81%AE%E7%82%B9%E3%82%92%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%A7%E9%9B%86%E8%A8%88%E3%81%99%E3%82%8B.html"><span class="header-section-number">17</span> 地図上の点をラスターで集計する</a></li>
+<li><a class="" href="%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%AE%E8%B7%9D%E9%9B%A2.html"><span class="header-section-number">18</span> ラスターの距離</a></li>
 </ul>
 
         <div class="book-extra">
@@ -94,7 +95,7 @@
 <span class="header-section-number">4.1</span> Package<a class="anchor" aria-label="anchor" href="#package-2"><i class="fas fa-link"></i></a>
 </h2>
 <p>触れる地図を描くなら、Leafletですね。</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/">leaflet</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="地図に点" class="section level2" number="4.2">
@@ -102,12 +103,12 @@
 <span class="header-section-number">4.2</span> 地図に点<a class="anchor" aria-label="anchor" href="#%E5%9C%B0%E5%9B%B3%E3%81%AB%E7%82%B9"><i class="fas fa-link"></i></a>
 </h2>
 <p>地図に点（マーカー）を配置します。</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rstudio.github.io/leaflet/reference/leaflet.html">leaflet</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addTiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rstudio.github.io/leaflet/reference/map-layers.html">addMarkers</a></span><span class="op">(</span>lng<span class="op">=</span><span class="fl">139.745461</span>, lat<span class="op">=</span><span class="fl">35.65856</span>, popup<span class="op">=</span><span class="st">"This is the Tokyo Tower."</span><span class="op">)</span></span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-cf55bbe1f7186d26af79" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-cf55bbe1f7186d26af79">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.65856,139.745461,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"This is the Tokyo Tower.",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[35.65856,35.65856],"lng":[139.745461,139.745461]}},"evals":[],"jsHooks":[]}</script>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-7328a85a34218513ff47" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7328a85a34218513ff47">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[35.65856,139.745461,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"This is the Tokyo Tower.",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[35.65856,35.65856],"lng":[139.745461,139.745461]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="最後に-2" class="section level2" number="4.3">
 <h2>
@@ -143,7 +144,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-28.</p>
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -78,6 +78,7 @@
 <li><a class="" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC2.html"><span class="header-section-number">15</span> Rasterの基本2</a></li>
 <li><a class="active" href="raster%E3%81%AE%E5%9F%BA%E6%9C%AC3.html"><span class="header-section-number">16</span> Rasterの基本3</a></li>
 <li><a class="" href="%E5%9C%B0%E5%9B%B3%E4%B8%8A%E3%81%AE%E7%82%B9%E3%82%92%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%A7%E9%9B%86%E8%A8%88%E3%81%99%E3%82%8B.html"><span class="header-section-number">17</span> 地図上の点をラスターで集計する</a></li>
+<li><a class="" href="%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%AE%E8%B7%9D%E9%9B%A2.html"><span class="header-section-number">18</span> ラスターの距離</a></li>
 </ul>
 
         <div class="book-extra">
@@ -94,7 +95,7 @@
 <span class="header-section-number">16.1</span> Package<a class="anchor" aria-label="anchor" href="#package-14"><i class="fas fa-link"></i></a>
 </h2>
 <p>今回も「terra」です。</p>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/">sf</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/">terra</a></span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -109,7 +110,7 @@
 <span class="header-section-number">16.3</span> 集計ラスターの作成<a class="anchor" aria-label="anchor" href="#%E9%9B%86%E8%A8%88%E3%83%A9%E3%82%B9%E3%82%BF%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>5x5の集計用ラスタです。</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#Create 5x5 raster</span></span>
 <span><span class="va">r_s</span> <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html">rast</a></span><span class="op">(</span></span>
 <span>  ncol<span class="op">=</span><span class="fl">5</span>,nrow<span class="op">=</span><span class="fl">5</span>,</span>
@@ -119,14 +120,14 @@
 <span></span>
 <span><span class="co">#output</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">r_s</span>,main<span class="op">=</span><span class="st">"r_s"</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-67-1.png" width="672"></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672"></div>
 </div>
 <div id="点データを作成" class="section level2" number="16.4">
 <h2>
 <span class="header-section-number">16.4</span> 点データを作成<a class="anchor" aria-label="anchor" href="#%E7%82%B9%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E4%BD%9C%E6%88%90"><i class="fas fa-link"></i></a>
 </h2>
 <p>点を作成します。SpatVector型にしましょう。</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p_df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>,</span>
@@ -141,16 +142,16 @@
 ##  dimensions  : 4, 0  (geometries, attributes)
 ##  extent      : 1, 9, 1, 7  (xmin, xmax, ymin, ymax)
 ##  coord. ref. :</code></pre>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">p_vec</span>,col<span class="op">=</span><span class="st">"red"</span>,cex<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672"></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-69-1.png" width="672"></div>
 </div>
 <div id="点の数をカウント" class="section level2" number="16.5">
 <h2>
 <span class="header-section-number">16.5</span> 点の数をカウント<a class="anchor" aria-label="anchor" href="#%E7%82%B9%E3%81%AE%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88"><i class="fas fa-link"></i></a>
 </h2>
 <p>rasterizeで、点の数をカウントします。</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#count</span></span>
 <span><span class="va">pc_r</span> <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rasterize.html">rasterize</a></span><span class="op">(</span><span class="va">p_vec</span>,<span class="va">r_s</span>,fun<span class="op">=</span><span class="st">"count"</span><span class="op">)</span> </span>
 <span></span>
@@ -160,14 +161,14 @@
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">pc_r</span>,main<span class="op">=</span><span class="st">"count"</span>,buffer<span class="op">=</span><span class="cn">TRUE</span>,type <span class="op">=</span> <span class="st">'continuous'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/text.html">text</a></span><span class="op">(</span><span class="va">pc_r</span>,col<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/lines.html">points</a></span><span class="op">(</span><span class="va">p_vec</span>,col<span class="op">=</span><span class="st">"red"</span>,cex<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-69-1.png" width="672"></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672"></div>
 </div>
 <div id="多数の点の数をカウント" class="section level2" number="16.6">
 <h2>
 <span class="header-section-number">16.6</span> 多数の点の数をカウント<a class="anchor" aria-label="anchor" href="#%E5%A4%9A%E6%95%B0%E3%81%AE%E7%82%B9%E3%81%AE%E6%95%B0%E3%82%92%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88"><i class="fas fa-link"></i></a>
 </h2>
 <p>rasterizeで点の数をカウントします。</p>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p_df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>,</span>
@@ -193,21 +194,21 @@
 ## name        : count 
 ## min value   :     1 
 ## max value   :     5</code></pre>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#NAのところは0に置き換え</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/values.html">values</a></span><span class="op">(</span><span class="va">pc_r</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/values.html">values</a></span><span class="op">(</span><span class="va">pc_r</span><span class="op">)</span><span class="op">)</span><span class="op">]</span> <span class="op">=</span> <span class="fl">0</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">pc_r</span>,main<span class="op">=</span><span class="st">"count"</span>,buffer<span class="op">=</span><span class="cn">TRUE</span>,type <span class="op">=</span> <span class="st">'continuous'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/text.html">text</a></span><span class="op">(</span><span class="va">pc_r</span>,col<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/lines.html">points</a></span><span class="op">(</span><span class="va">p_vec</span>,col<span class="op">=</span><span class="st">"red"</span>,cex<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672"></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672"></div>
 </div>
 <div id="境界線上の点は" class="section level2" number="16.7">
 <h2>
 <span class="header-section-number">16.7</span> 境界線上の点は…<a class="anchor" aria-label="anchor" href="#%E5%A2%83%E7%95%8C%E7%B7%9A%E4%B8%8A%E3%81%AE%E7%82%B9%E3%81%AF"><i class="fas fa-link"></i></a>
 </h2>
 <p>こんな感じで、ダブルカウントはなく、使いやすいです。</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p_df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">2</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">0</span><span class="op">)</span>,</span>
@@ -232,7 +233,7 @@
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html">plot</a></span><span class="op">(</span><span class="va">pc_r</span>,main<span class="op">=</span><span class="st">"count"</span>,buffer<span class="op">=</span><span class="cn">TRUE</span>,type <span class="op">=</span> <span class="st">'continuous'</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/text.html">text</a></span><span class="op">(</span><span class="va">pc_r</span>,col<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/lines.html">points</a></span><span class="op">(</span><span class="va">p_vec</span>,col<span class="op">=</span><span class="st">"red"</span>,cex<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672"></div>
+<div class="inline-figure"><img src="_main_files/figure-html/unnamed-chunk-72-1.png" width="672"></div>
 </div>
 <div id="最後に-14" class="section level2" number="16.8">
 <h2>
@@ -273,7 +274,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-28.</p>
+    <p>"<strong>R Memo</strong>" was written by m-ari. It was last built on 2025-03-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
